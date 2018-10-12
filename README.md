@@ -26,7 +26,7 @@ The following volumes are exposed:
 Ports
 -----
 
-The following ports are exposed:
+The following ports are exposed by default:
 
 | Name | Value |
 |------|-------|
@@ -42,6 +42,7 @@ The following environment variables are available for your configuration pleasur
 | CA_ROOT_URI | | URI to root CA API. If blank, the new server will be setup as the root CA. Make sure to include the protocol (such as https://) |
 | CFSSL_CSR | csr_root_ca.json | CSR config file to initialize new server with. This should be in root of the `/etc/cfssl` mount. |
 | CFSSL_CONFIG | ca_root_config.json | Signing profile for the new server. This should be in root of the `/etc/cfssl` mount. |
+| CFSSL_PORT | 8080 | Default to listen. |
 | DB_CONFIG | db_config.json | Database configuration file for the new server. This should be in root of the `/etc/cfssl` mount. |
 | DB_ENVIRONMENT | production | Name of database environment. One of `development`, `test`, `staging`, or `production`, unless you are using a custom Goose `dbconf.yml` |
 | DB_DESTROY | 0 | Will destroy any existing database if set to `1`. Forces `DB_INIT` to `1` |
