@@ -45,8 +45,8 @@ RUN apk add --no-cache --virtual .build-deps \
 	&& go build -o /usr/bin/mkbundle ./cmd/mkbundle \
 	&& go build -o /usr/bin/multirootca ./cmd/multirootca \
 # Install trusted certs
-#	&& cp -R "${GOPATH}/src/github.com/cloudflare/cfssl/vendor/github.com/cloudflare/cfssl_trust" / \
-    && mkdir /cfssl_trust \
+    && go get github.com/cloudflare/cfssl_trust/... \
+    && cp -R /go/src/github.com/cloudflare/cfssl_trust / \
 	&& ln -s /cfssl_trust /etc/cfssl/ \
 # Move database migrations to /opt
     && mkdir /opt/ \
