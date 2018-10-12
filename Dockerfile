@@ -6,6 +6,7 @@ MAINTAINER Dave Lasley <dave@laslabs.com>
 
 ENV CFSSL_CSR="csr_root_ca.json" \
     CFSSL_CONFIG="ca_root_config.json" \
+    CFSSL_PORT="8080" \
     DB_CONFIG="db_config.json" \
     DB_ENVIRONMENT="production" \
     DB_INIT="1" \
@@ -91,7 +92,7 @@ CMD ["cfssl", \
      "-address=0.0.0.0", \
      "-ca=/etc/cfssl/ca.pem", \
      "-ca-key=/etc/cfssl/ca-key.pem", \
-     "-port=8080"]
+     "-port=${CFSSL_PORT}"]
 
 # Metadata
 ARG BUILD_DATE
